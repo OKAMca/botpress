@@ -16,7 +16,7 @@ export default {
       },
       action: {
         type: 'string',
-        enum: ['Say something', 'Open URL', 'Pick location'],
+        enum: ['Say something', 'Open URL', 'Click-to-Call', 'Pick location'],
         default: 'Say something'
       }
     },
@@ -52,13 +52,31 @@ export default {
               }
             },
             required: ['url']
+          },
+          {
+            properties: {
+              action: {
+                enum: ['Click-to-Call']
+              },
+              phone_number: {
+                type: 'string',
+                title: 'Enter a valid Phone Number'
+              }
+            },
+            required: ['phone_number']
           }
         ]
       }
     }
   },
 
-  uiSchema: {},
+  uiSchema: {
+    items: {
+      phone_number: {
+        'ui:help': 'Include "+" prefix, country code, area code and local number: +16505551234'
+      }
+    }
+  },
 
   computePreviewText: formData => `Action: ${formData.action}`,
 

@@ -26,6 +26,12 @@ export default data => [
             webview_height_ratio: a.webview_height_ratio,
             messenger_extensions: a.messenger_extensions
           }
+        } else if (a.action === 'Click-to-Call') {
+          return {
+            type: 'phone_number',
+            title: a.title,
+            payload: a.phone_number
+          }
         } else if (a.action === 'Pick location') {
           throw new Error('Messenger does not support "Pick location" action-buttons for carousels')
         }
