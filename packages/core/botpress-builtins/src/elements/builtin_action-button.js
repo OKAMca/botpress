@@ -38,6 +38,17 @@ export default {
               url: {
                 type: 'string',
                 title: 'Enter a valid URL'
+              },
+              webview_height_ratio: {
+                type: 'string',
+                title: 'Webview Height',
+                enum: ['compact', 'tall', 'full'],
+                default: 'tall'
+              },
+              messenger_extensions: {
+                type: 'boolean',
+                title: 'Messenger Extensions',
+                default: true
               }
             },
             required: ['url']

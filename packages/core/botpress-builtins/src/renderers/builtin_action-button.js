@@ -24,7 +24,9 @@ export default data => {
               return {
                 type: 'web_url',
                 title: a.title,
-                url: a.url
+                url: a.url,
+                webview_height_ratio: a.webview_height_ratio,
+                messenger_extensions: a.messenger_extensions
               }
             }
           })
