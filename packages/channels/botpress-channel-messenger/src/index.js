@@ -58,7 +58,7 @@ const initializeMessenger = async (bp, configurator) => {
 
   return messenger
     .connect()
-    .then(() => messenger.updateSettings())
+    .then(() => (config.freezeProfile ? messenger : messenger.updateSettings()))
     .catch(err => bp.logger.error(err))
 }
 
@@ -70,6 +70,7 @@ module.exports = {
     verifyToken: { type: 'string', required: false, default: '' },
     enabled: { type: 'bool', required: true, default: true },
     hostname: { type: 'string', required: false, default: '', env: 'MESSENGER_HOST' },
+    freezeProfile: { type: 'bool', required: false, default: false },
 
     graphVersion: { type: 'string', required: true, default: '2.12' },
     displayGetStarted: { type: 'bool', required: false, default: true },
