@@ -15,6 +15,10 @@ export default {
       type: 'object',
       required: ['title'],
       properties: {
+        title: {
+          type: 'string',
+          title: 'Title'
+        },
         platform: {
           type: 'string',
           title: 'Which platform?'
@@ -29,6 +33,9 @@ export default {
 
   uiSchema: {
     items: {
+      title: {
+        'ui:widget': 'text'
+      },
       platform: {
         'ui:help': 'Tip: type "*" to fit all platforms'
       },
