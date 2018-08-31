@@ -539,6 +539,15 @@ class Messenger extends EventEmitter {
             payload: 'QR_' + normalizeString(reply)
           }
         } else if (reply && reply.title) {
+          if (reply.title == 'Send Location' && reply.payload == 'SEND LOCATION') {
+            return { content_type: 'location' }
+          }
+          if (reply.title == 'Send Email' && reply.payload == 'SEND EMAIL') {
+            return { content_type: 'user_email' }
+          }
+          if (reply.title == 'Send Phone' && reply.payload == 'SEND PHONE') {
+            return { content_type: 'user_phone_number' }
+          }
           return {
             content_type: reply.content_type || 'text',
             title: reply.title,
