@@ -168,14 +168,12 @@ module.exports = (bp, messenger) => {
   })
 
   messenger.on('optin', e => {
-    preprocessEvent(e).then(profile => {
-      bp.middlewares.sendIncoming({
-        platform: 'facebook',
-        type: 'optin',
-        user: profile,
-        text: e.optin.ref,
-        raw: e
-      })
+    bp.middlewares.sendIncoming({
+      platform: 'facebook',
+      type: 'optin',
+      user: e.optin.user_ref,
+      text: e.optin.ref,
+      raw: e
     })
   })
 

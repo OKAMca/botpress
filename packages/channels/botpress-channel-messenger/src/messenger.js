@@ -234,7 +234,7 @@ class Messenger extends EventEmitter {
   getUserProfile(userId) {
     const token = this.config.accessToken
     const url = `https://graph.facebook.com/v${this.config
-      .graphVersion}/${userId}?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=${token}`
+      .graphVersion}/${userId}?fields=first_name,last_name,profile_pic&access_token=${token}`
     return fetch(url)
       .then(this._handleFacebookResponse)
       .then(res => res.json())
