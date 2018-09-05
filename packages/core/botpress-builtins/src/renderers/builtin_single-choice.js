@@ -6,20 +6,20 @@ import url from 'url'
 const SKIP_CHOICE_PREFIX = /^!skip |^!hide |^!hidden /i
 
 const takeVisible = choices => {
-  return (choices || []).filter(c => !SKIP_CHOICE_PREFIX.test(c.reply) && !SKIP_CHOICE_PREFIX.test(c.label))
+  return (choices || []).filter(c => !SKIP_CHOICE_PREFIX.test(c.value) && !SKIP_CHOICE_PREFIX.test(c.title))
 }
 
 export default data => [
   {
     on: 'facebook',
     text: data.text,
-    quick_replies: takeVisible(data.choices).map(c => `<${c.reply || c.action}> ${c.label || c.action}`),
+    quick_replies: takeVisible(data.choices).map(c => `<${c.value || c.action}> ${c.title || c.action}`),
     typing: data.typing
   },
   {
     on: 'webchat',
     text: data.text,
-    quick_replies: takeVisible(data.choices).map(c => `<${c.reply}> ${c.label}`),
+    quick_replies: takeVisible(data.choices).map(c => `<${c.value}> ${c.title}`),
     typing: data.typing
   },
   {
@@ -30,8 +30,8 @@ export default data => [
     suggestedActions: {
       actions: takeVisible(data.choices).map(c => ({
         type: 'imBack',
-        label: c.label,
-        reply: c.reply
+        title: c.title,
+        value: c.value
       }))
     }
   },
@@ -43,9 +43,9 @@ export default data => [
         attachment_type: 'default',
         actions: takeVisible(data.choices).map(c => ({
           name: 'press',
-          text: c.label,
+          text: c.title,
           type: 'button',
-          reply: c.reply
+          value: c.value
         }))
       }
     ]
