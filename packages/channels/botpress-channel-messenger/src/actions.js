@@ -179,6 +179,10 @@ const createTemplate = (userId, payload, options) => {
   validateUserId(userId)
   validateTemplatePayload(payload)
 
+  if (options && options.quick_replies) {
+    validateQuickReplies(options.quick_replies)
+  }
+
   if (options && options.typing) {
     validateTyping(options.typing)
   }
@@ -191,6 +195,7 @@ const createTemplate = (userId, payload, options) => {
       to: userId,
       payload: payload,
       typing: options && options.typing,
+      quick_replies: options && options.quick_replies,
       waitRead: options && options.waitRead,
       waitDelivery: options && options.waitDelivery
     }
