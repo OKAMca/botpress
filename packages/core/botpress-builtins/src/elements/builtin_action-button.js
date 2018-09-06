@@ -16,7 +16,7 @@ export default {
       },
       action: {
         type: 'string',
-        enum: ['Say something', 'Open URL', 'Click-to-Call', 'Pick location'],
+        enum: ['Say something', 'Open URL', 'Click-to-Call', 'Share', 'Pick location'],
         default: 'Say something'
       }
     },
@@ -26,7 +26,7 @@ export default {
           {
             properties: {
               action: {
-                enum: ['Say something', 'Pick location']
+                enum: ['Say something', 'Pick location', 'Share']
               }
             }
           },

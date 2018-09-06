@@ -34,6 +34,10 @@ export default data => {
                 title: a.title,
                 payload: a.phone_number
               }
+            } else if (a.action === 'Share') {
+              return {
+                type: 'element_share'
+              }
             }
           })
         }

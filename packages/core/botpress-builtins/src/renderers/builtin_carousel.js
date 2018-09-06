@@ -32,6 +32,10 @@ export default data => [
             title: a.title,
             payload: a.phone_number
           }
+        } else if (a.action === 'Share') {
+          return {
+            type: 'element_share'
+          }
         } else if (a.action === 'Pick location') {
           throw new Error('Messenger does not support "Pick location" action-buttons for carousels')
         }
