@@ -14,6 +14,10 @@ export default {
     type: 'object',
     required: ['text'],
     properties: {
+      label: {
+        type: 'string',
+        title: 'Label'
+      },
       text: {
         type: 'string',
         title: 'Message'
@@ -55,6 +59,6 @@ export default {
     }
   },
 
-  computePreviewText: formData => 'Text: ' + formData.text,
+  computePreviewText: formData => 'Text: ' + (formData.label || formData.text.substring(0, 40)),
   computeMetadata: null
 }

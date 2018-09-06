@@ -49,7 +49,7 @@ export default {
 
   uiSchema: {},
 
-  computePreviewText: formData => `Action: ${formData.action}`,
+  computePreviewText: formData => `Reply: ${formData.title || formData.action}`,
 
   computeMetadata: null
 }

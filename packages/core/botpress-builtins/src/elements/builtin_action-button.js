@@ -78,7 +78,7 @@ export default {
     }
   },
 
-  computePreviewText: formData => `Action: ${formData.action}`,
+  computePreviewText: formData => `Action: ${formData.title} [${formData.action}]`,
 
   computeMetadata: null
 }
