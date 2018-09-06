@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="10.35.1"></a>
+## [10.35.1](https://github.com/botpress/modules/compare/v10.35.0...v10.35.1) (2018-09-05)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-messenger
+
+<a name="10.35.0"></a>
+# [10.35.0](https://github.com/botpress/modules/compare/v10.34.0...v10.35.0) (2018-09-04)
+
+
+### Bug Fixes
+
+* updated node-sass package ([8064701](https://github.com/botpress/modules/commit/8064701))
+
+
+
+
+<a name="10.34.0"></a>
+# [10.34.0](https://github.com/botpress/modules/compare/v10.32.0...v10.34.0) (2018-08-30)
+
+
+### Bug Fixes
+
+* **messenger:** added possibility to set text ([aeb390e](https://github.com/botpress/modules/commit/aeb390e))
+
+
+
+
 <a name="10.33.2"></a>
 ## [10.33.2](https://github.com/botpress/modules/compare/v10.33.1...v10.33.2) (2018-08-24)
 
