@@ -132,7 +132,10 @@ const createText = (userId, text, options) => {
       typing: options && options.typing,
       quick_replies: options && options.quick_replies,
       waitRead: options && options.waitRead,
-      waitDelivery: options && options.waitDelivery
+      waitDelivery: options && options.waitDelivery,
+      tag: options && options.tag,
+      messaging_type: options && options.messaging_type,
+      user_ref: options && options.user_ref
     }
   })
 }
@@ -170,7 +173,10 @@ const createAttachment = (userId, type, url, options) => {
       typing: options && options.typing,
       quick_replies: options && options.quick_replies,
       waitRead: options && options.waitRead,
-      waitDelivery: options && options.waitDelivery
+      waitDelivery: options && options.waitDelivery,
+      tag: options && options.tag,
+      messaging_type: options && options.messaging_type,
+      user_ref: options && options.user_ref
     }
   })
 }
@@ -178,6 +184,10 @@ const createAttachment = (userId, type, url, options) => {
 const createTemplate = (userId, payload, options) => {
   validateUserId(userId)
   validateTemplatePayload(payload)
+
+  if (options && options.quick_replies) {
+    validateQuickReplies(options.quick_replies)
+  }
 
   if (options && options.typing) {
     validateTyping(options.typing)
@@ -191,8 +201,12 @@ const createTemplate = (userId, payload, options) => {
       to: userId,
       payload: payload,
       typing: options && options.typing,
+      quick_replies: options && options.quick_replies,
       waitRead: options && options.waitRead,
-      waitDelivery: options && options.waitDelivery
+      waitDelivery: options && options.waitDelivery,
+      tag: options && options.tag,
+      messaging_type: options && options.messaging_type,
+      user_ref: options && options.user_ref
     }
   })
 }

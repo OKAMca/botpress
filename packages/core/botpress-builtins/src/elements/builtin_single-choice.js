@@ -45,6 +45,6 @@ export default {
     }
   },
 
-  computePreviewText: formData => `Choices (${formData.choices.length}): ${formData.title}`,
+  computePreviewText: formData => `Choices: ${formData.title} [${formData.choices.length}]`,
   computeMetadata: null
 }

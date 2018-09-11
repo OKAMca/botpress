@@ -48,7 +48,7 @@ export default {
     }
   },
 
-  computePreviewText: formData => 'Raw Platform Message',
+  computePreviewText: formData => `Raw Payload: ${formData[0].title}`,
 
   computeMetadata: null
 }

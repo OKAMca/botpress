@@ -31,16 +31,16 @@ export default {
               action: {
                 enum: ['Text reply']
               },
-              label: {
+              title: {
                 type: 'string',
                 description: 'Quick Reply label seen by user'
               },
-              reply: {
+              value: {
                 type: 'string',
                 title: 'Reply that user sends when clicking the button'
               }
             },
-            required: ['reply']
+            required: ['value']
           }
         ]
       }
@@ -49,7 +49,7 @@ export default {
 
   uiSchema: {},
 
-  computePreviewText: formData => `Action: ${formData.action}`,
+  computePreviewText: formData => `Reply: ${formData.title || formData.action}`,
 
   computeMetadata: null
 }

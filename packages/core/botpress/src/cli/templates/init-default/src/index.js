@@ -45,8 +45,13 @@ module.exports = async bp => {
   /// Conversation Management
   ////////////////////////////
 
+  // Welcome screen
+  bp.hear({ platform: 'facebook', type: 'postback', text: 'GET_STARTED' }, (event, next) => {
+    bp.dialogEngine.processMessage(event.sessionId || event.user.id, event).then()
+  })
+
   // All events that should be processed by the Flow Manager
-  bp.hear({ type: /bp_dialog_timeout|text|message|quick_reply/i }, (event, next) => {
+  bp.hear({ type: /bp_dialog_timeout|text|message|quick_reply|attachment/i }, (event, next) => {
     bp.dialogEngine.processMessage(event.sessionId || event.user.id, event).then()
   })
 }

@@ -26,22 +26,11 @@ module.exports = (bp, messenger) => {
       messagesCache.set(mid, true)
     }
 
-    return users.getOrFetchUserProfile(userId)
-  }
-
-  //process event where user is unknown
-  const preprocessAnnoymousEvent = payload => {
-    const userRef = payload.optin.user_ref
-
-    if (userRef && !messagesCache.has(userRef)) {
-      // We already processed this message
-      payload.alreadyProcessed = true
-    } else {
-      // Mark it as processed
-      messagesCache.set(userRef, true)
+    if (payload.optin && payload.optin.user_ref) {
+      return users.saveAnonymousUser(payload.optin.user_ref)
     }
 
-    return users.saveAnonymousUser(userRef)
+    return users.getOrFetchUserProfile(userId)
   }
 
   messenger.on('message', e => {
@@ -183,7 +172,7 @@ module.exports = (bp, messenger) => {
   })
 
   messenger.on('optin', e => {
-    preprocessAnnoymousEvent(e).then(profile => {
+    preprocessEvent(e).then(profile => {
       bp.middlewares.sendIncoming({
         platform: 'facebook',
         type: 'optin',
