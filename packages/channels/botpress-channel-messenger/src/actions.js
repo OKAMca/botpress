@@ -183,6 +183,8 @@ const createTemplate = (userId, payload, options) => {
     validateTyping(options.typing)
   }
 
+  console.log('!!PAYLOAD!!', payload)
+
   return create({
     platform: 'facebook',
     type: 'template',

@@ -26,6 +26,25 @@ module.exports = function(bp, messenger) {
     }
   }
 
+  async function saveAnonymousUser(userRef) {
+    const knex = await bp.db.get()
+
+    const user = await knex('users')
+      .where({ platform: 'facebook', userId: userRef })
+      .then()
+      .get(0)
+      .then()
+
+    if (user) {
+      return dbEntryToProfile(user)
+    }
+
+    const profile = { id: userRef, platform: 'facebook' }
+    await bp.db.saveUser(profileToDbEntry(profile))
+
+    return profile
+  }
+
   async function getOrFetchUserProfile(userId) {
     const knex = await bp.db.get()
 
@@ -55,5 +74,5 @@ module.exports = function(bp, messenger) {
     return (users || []).map(dbEntryToProfile)
   }
 
-  return { getOrFetchUserProfile, getAllUsers }
+  return { getOrFetchUserProfile, getAllUsers, saveAnonymousUser }
 }

@@ -144,19 +144,21 @@ class Messenger extends EventEmitter {
   }
 
   sendAction(recipientId, action) {
+    const key = !isNaN(recipientId) ? 'id' : 'user_ref'
     return this.sendRequest({
       recipient: {
-        id: recipientId
+        [key]: recipientId
       },
       sender_action: action
     })
   }
 
   sendMessage(recipientId, message, options) {
+    const key = !isNaN(recipientId) ? 'id' : 'user_ref'
     const req = () =>
       this.sendRequest({
         recipient: {
-          id: recipientId
+          [key]: recipientId
         },
         message
       })
