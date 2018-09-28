@@ -398,7 +398,8 @@ export default class LuisProvider extends Provider {
         original: entity.entity,
         confidence: null,
         position: entity.startIndex,
-        provider: 'luis'
+        provider: 'luis',
+        unit: _.get(entity, 'resolution.unit')
       }))
     }
   }
