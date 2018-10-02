@@ -26,7 +26,8 @@ module.exports = (bp, messenger) => {
       messagesCache.set(mid, true)
     }
 
-    if (payload.optin && payload.optin.user_ref) {
+    if (payload.optin != null && payload.optin.user_ref != null) {
+      console.log('!!!OPTIN!!!')
       return users.saveAnonymousUser(payload.optin.user_ref)
     }
 
