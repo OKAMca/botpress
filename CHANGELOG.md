@@ -3,7 +3,266 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-      <a name="10.45.0"></a>
+      <a name="10.51.1"></a>
+## [10.51.1](https://github.com/botpress/botpress/compare/v10.51.0...v10.51.1) (2018-11-17)
+
+
+### Bug Fixes
+
+* **core:** add .env to .gitignore of new bot template (fix [#1107](https://github.com/botpress/botpress/issues/1107)) ([#1130](https://github.com/botpress/botpress/issues/1130)) ([debf21a](https://github.com/botpress/botpress/commit/debf21a))
+* **messenger:** add subscribed_fields required field ([#1099](https://github.com/botpress/botpress/issues/1099)) ([3cd110c](https://github.com/botpress/botpress/commit/3cd110c))
+* **qna:** add bom-symbol to exported csv ([#1125](https://github.com/botpress/botpress/issues/1125)) ([967c601](https://github.com/botpress/botpress/commit/967c601))
+
+
+
+
+      <a name="10.51.0"></a>
+# [10.51.0](https://github.com/botpress/botpress/compare/v10.50.0...v10.51.0) (2018-11-08)
+
+
+### Bug Fixes
+
+* **core:** added support for path prefixes ([b9c9aa7](https://github.com/botpress/botpress/commit/b9c9aa7))
+* **core-ui:** returnTo pathname based on router context ([340de33](https://github.com/botpress/botpress/commit/340de33))
+* **nlu:** fix Luis NLU fetching success training status ([5da5097](https://github.com/botpress/botpress/commit/5da5097))
+* **ui:** bot select dropdown styling ([ed2d485](https://github.com/botpress/botpress/commit/ed2d485))
+* **webchat:** fix acessing url-params (resolve [#721](https://github.com/botpress/botpress/issues/721)) ([#1086](https://github.com/botpress/botpress/issues/1086)) ([48c1724](https://github.com/botpress/botpress/commit/48c1724))
+* add admin link, move select bot, fix help btn ([1775808](https://github.com/botpress/botpress/commit/1775808))
+* remove unused method ([bbfbc6b](https://github.com/botpress/botpress/commit/bbfbc6b))
+* unlicensed in sidebarfooter ([2446ef0](https://github.com/botpress/botpress/commit/2446ef0))
+* wrap bot select in nav item ([68b1501](https://github.com/botpress/botpress/commit/68b1501))
+* **xx:** added admin link and hidden menu when not xx ([fdd676b](https://github.com/botpress/botpress/commit/fdd676b))
+* **xx:** minor ajustment for notifications ([74d9ae0](https://github.com/botpress/botpress/commit/74d9ae0))
+* **xx:** when receiving a new notification, others are disappearing ([35e87e4](https://github.com/botpress/botpress/commit/35e87e4))
+
+
+### Features
+
+* **core:** add bot select for botpress-xx ([c932b3d](https://github.com/botpress/botpress/commit/c932b3d))
+* **core:** implemented bot switch ([99e9287](https://github.com/botpress/botpress/commit/99e9287))
+* **core-ui:** lite views support multi-bot ([460892a](https://github.com/botpress/botpress/commit/460892a))
+* **core-ui:** lite views support multi-bot ([b6c6f69](https://github.com/botpress/botpress/commit/b6c6f69))
+* **xx:** disabled login screen in XX ([fb8ddeb](https://github.com/botpress/botpress/commit/fb8ddeb))
+* **xx:** ghost content export ([101ab0e](https://github.com/botpress/botpress/commit/101ab0e))
+* **xx:** notification support ([3cbfaac](https://github.com/botpress/botpress/commit/3cbfaac))
+
+
+
+
+<a name="10.50.0"></a>
+# [10.50.0](https://github.com/botpress/botpress/compare/v10.49.0...v10.50.0) (2018-10-31)
+
+
+### Bug Fixes
+
+* **hitl:** swallow quick reply message type ([b74d928](https://github.com/botpress/botpress/commit/b74d928))
+
+
+### Features
+
+* **qna:** add typing time when bot answer to a question ([b97d074](https://github.com/botpress/botpress/commit/b97d074))
+
+
+
+
+<a name="10.49.0"></a>
+# [10.49.0](https://github.com/botpress/botpress/compare/v10.48.5...v10.49.0) (2018-10-30)
+
+
+### Features
+
+* **web:** add filterQuickReplies option into snippet ([964557e](https://github.com/botpress/botpress/commit/964557e))
+
+
+
+
+<a name="10.48.5"></a>
+## [10.48.5](https://github.com/botpress/botpress/compare/v10.48.4...v10.48.5) (2018-10-19)
+
+
+### Bug Fixes
+
+* **core:** fix rerunning module migrations ([ec6279b](https://github.com/botpress/botpress/commit/ec6279b))
+* **hitl:** display event inside conversation for hitl module ([21b7749](https://github.com/botpress/botpress/commit/21b7749))
+* **hitl:** display messages of type quick_reply in hitl module ([e8ae668](https://github.com/botpress/botpress/commit/e8ae668))
+* **hitl:** reset hitl_messages pg sequence (resolve [#1007](https://github.com/botpress/botpress/issues/1007)) ([eb8bf71](https://github.com/botpress/botpress/commit/eb8bf71))
+
+
+
+
+<a name="10.48.4"></a>
+## [10.48.4](https://github.com/botpress/botpress/compare/v10.48.3...v10.48.4) (2018-10-17)
+
+
+### Bug Fixes
+
+* **core:** fix ghost-content uniq index migration for sqlite ([#1033](https://github.com/botpress/botpress/issues/1033)) ([aef783b](https://github.com/botpress/botpress/commit/aef783b))
+
+
+
+
+<a name="10.48.3"></a>
+## [10.48.3](https://github.com/botpress/botpress/compare/v10.48.2...v10.48.3) (2018-10-17)
+
+
+### Bug Fixes
+
+* **core:** create missing files/folder during ghost-sync (resolve [#996](https://github.com/botpress/botpress/issues/996)) ([#1031](https://github.com/botpress/botpress/issues/1031)) ([8463aa2](https://github.com/botpress/botpress/commit/8463aa2))
+
+
+
+
+<a name="10.48.2"></a>
+## [10.48.2](https://github.com/botpress/botpress/compare/v10.48.1...v10.48.2) (2018-10-17)
+
+
+### Bug Fixes
+
+* **core:** fix missing migration error for existing bots (resolve [#1025](https://github.com/botpress/botpress/issues/1025)) ([#1029](https://github.com/botpress/botpress/issues/1029)) ([aa8fb30](https://github.com/botpress/botpress/commit/aa8fb30))
+
+
+
+
+<a name="10.48.1"></a>
+## [10.48.1](https://github.com/botpress/botpress/compare/v10.48.0...v10.48.1) (2018-10-17)
+
+
+### Bug Fixes
+
+* **core:** update tests on user list tags ([#1028](https://github.com/botpress/botpress/issues/1028)) ([055cbe4](https://github.com/botpress/botpress/commit/055cbe4))
+* **qna:** fix deleting questions for QnA-maker ([#1027](https://github.com/botpress/botpress/issues/1027)) ([3ed1788](https://github.com/botpress/botpress/commit/3ed1788))
+
+
+
+
+<a name="10.48.0"></a>
+# [10.48.0](https://github.com/botpress/botpress/compare/v10.47.1...v10.48.0) (2018-10-16)
+
+
+### Bug Fixes
+
+* **core:** fix fetching users' tags ([#1023](https://github.com/botpress/botpress/issues/1023)) ([afba620](https://github.com/botpress/botpress/commit/afba620))
+* **core:** remove ghost file uniq index migration (resolve [#1017](https://github.com/botpress/botpress/issues/1017)) ([#1018](https://github.com/botpress/botpress/issues/1018)) ([d91ee40](https://github.com/botpress/botpress/commit/d91ee40))
+* **web:** add padding to greeting message ([#1019](https://github.com/botpress/botpress/issues/1019)) ([5510176](https://github.com/botpress/botpress/commit/5510176))
+
+
+### Features
+
+* **analytics:** add table type to graphs ([#1021](https://github.com/botpress/botpress/issues/1021)) ([6dbe9c3](https://github.com/botpress/botpress/commit/6dbe9c3))
+
+
+
+
+<a name="10.47.1"></a>
+## [10.47.1](https://github.com/botpress/botpress/compare/v10.47.0...v10.47.1) (2018-10-15)
+
+
+### Bug Fixes
+
+* **qna:** fix accessing storage in async-functions (resolve [#1004](https://github.com/botpress/botpress/issues/1004)) ([#1015](https://github.com/botpress/botpress/issues/1015)) ([0da2824](https://github.com/botpress/botpress/commit/0da2824))
+
+
+
+
+<a name="10.47.0"></a>
+# [10.47.0](https://github.com/botpress/botpress/compare/v10.46.5...v10.47.0) (2018-10-10)
+
+
+### Bug Fixes
+
+* **core:** remove 'buttons' fields when actions empty (ref [#690](https://github.com/botpress/botpress/issues/690)) ([#1000](https://github.com/botpress/botpress/issues/1000)) ([c671043](https://github.com/botpress/botpress/commit/c671043))
+* **webchat:** render unsupported messages and extensions ([#1001](https://github.com/botpress/botpress/issues/1001)) ([5f4cb6e](https://github.com/botpress/botpress/commit/5f4cb6e))
+
+
+### Features
+
+* **messenger:** get hostname from BOTPRESS_URL (resolve [#910](https://github.com/botpress/botpress/issues/910)) ([#997](https://github.com/botpress/botpress/issues/997)) ([3f9ddda](https://github.com/botpress/botpress/commit/3f9ddda))
+
+
+
+
+<a name="10.46.5"></a>
+## [10.46.5](https://github.com/botpress/botpress/compare/v10.46.4...v10.46.5) (2018-10-06)
+
+
+### Bug Fixes
+
+* **builtins:** action-buttons showed <unsupported action> (fix [#970](https://github.com/botpress/botpress/issues/970)) ([#994](https://github.com/botpress/botpress/issues/994)) ([a2913dc](https://github.com/botpress/botpress/commit/a2913dc))
+
+
+
+
+<a name="10.46.4"></a>
+## [10.46.4](https://github.com/botpress/botpress/compare/v10.46.3...v10.46.4) (2018-10-06)
+
+
+### Bug Fixes
+
+* **core:** make DB initialization in all modules in init() block ([bf241ab](https://github.com/botpress/botpress/commit/bf241ab))
+
+
+
+
+<a name="10.46.3"></a>
+## [10.46.3](https://github.com/botpress/botpress/compare/v10.46.2...v10.46.3) (2018-10-05)
+
+
+### Bug Fixes
+
+* **core:** title field is required (author dmk23 resolve [#883](https://github.com/botpress/botpress/issues/883)) ([#982](https://github.com/botpress/botpress/issues/982)) ([ff63de7](https://github.com/botpress/botpress/commit/ff63de7))
+* **docs:** jekyll vulnerability fix ([#993](https://github.com/botpress/botpress/issues/993)) ([94d4a25](https://github.com/botpress/botpress/commit/94d4a25))
+* **messenger:** improve rate limit (author dmk23 resolve [#884](https://github.com/botpress/botpress/issues/884)) ([#986](https://github.com/botpress/botpress/issues/986)) ([cc682a5](https://github.com/botpress/botpress/commit/cc682a5))
+* **qna:** categories can be provided as config-variable ([#989](https://github.com/botpress/botpress/issues/989)) ([a30f18d](https://github.com/botpress/botpress/commit/a30f18d))
+* **qna:** fix pagination not appearing on initial render ([#992](https://github.com/botpress/botpress/issues/992)) ([87fba19](https://github.com/botpress/botpress/commit/87fba19))
+* **qna:** fix qna-module errors when using NLU (resolve [#973](https://github.com/botpress/botpress/issues/973)) ([#988](https://github.com/botpress/botpress/issues/988)) ([eb8c30d](https://github.com/botpress/botpress/commit/eb8c30d))
+* **slack:** added user obj to slack umm for analytics (resolve [#983](https://github.com/botpress/botpress/issues/983)) ([#987](https://github.com/botpress/botpress/issues/987)) ([f7f4c7c](https://github.com/botpress/botpress/commit/f7f4c7c))
+
+
+
+
+<a name="10.46.2"></a>
+## [10.46.2](https://github.com/botpress/botpress/compare/v10.46.1...v10.46.2) (2018-10-03)
+
+
+### Bug Fixes
+
+* **hitl:** hitl bug with outgoing message to slack (resolve [#924](https://github.com/botpress/botpress/issues/924)) ([#978](https://github.com/botpress/botpress/issues/978)) ([e8dbe80](https://github.com/botpress/botpress/commit/e8dbe80))
+* **qna:** questions-filter is case-insensitive ([#980](https://github.com/botpress/botpress/issues/980)) ([03fa755](https://github.com/botpress/botpress/commit/03fa755))
+
+
+
+
+<a name="10.46.1"></a>
+## [10.46.1](https://github.com/botpress/botpress/compare/v10.46.0...v10.46.1) (2018-10-03)
+
+
+### Bug Fixes
+
+* **qna:** close qna-form on submit ([#981](https://github.com/botpress/botpress/issues/981)) ([d137e88](https://github.com/botpress/botpress/commit/d137e88))
+* **qna:** fix validating QNA-items ([#979](https://github.com/botpress/botpress/issues/979)) ([92b186f](https://github.com/botpress/botpress/commit/92b186f))
+
+
+
+
+<a name="10.46.0"></a>
+# [10.46.0](https://github.com/botpress/botpress/compare/v10.45.0...v10.46.0) (2018-10-03)
+
+
+### Bug Fixes
+
+* **core:** replace all (?) to (\?) (author mdk23 resolve [#880](https://github.com/botpress/botpress/issues/880)) ([#976](https://github.com/botpress/botpress/issues/976)) ([e74c0d8](https://github.com/botpress/botpress/commit/e74c0d8))
+* **nlu:** force coherent nlu native values (resolve [#971](https://github.com/botpress/botpress/issues/971)) ([#975](https://github.com/botpress/botpress/issues/975)) ([991d9fb](https://github.com/botpress/botpress/commit/991d9fb))
+* **qna:** fix qna-form not displaying item data ([#974](https://github.com/botpress/botpress/issues/974)) ([ca8e2eb](https://github.com/botpress/botpress/commit/ca8e2eb))
+
+
+### Features
+
+* **core:** implemneted migration for every modules ([#972](https://github.com/botpress/botpress/issues/972)) ([c771e34](https://github.com/botpress/botpress/commit/c771e34))
+
+
+
+
+<a name="10.45.0"></a>
 # [10.45.0](https://github.com/botpress/botpress/compare/v10.44.2...v10.45.0) (2018-10-01)
 
 
@@ -24,7 +283,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-      <a name="10.44.2"></a>
+<a name="10.44.2"></a>
 ## [10.44.2](https://github.com/botpress/botpress/compare/v10.44.1...v10.44.2) (2018-09-28)
 
 

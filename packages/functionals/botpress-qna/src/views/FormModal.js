@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FormControl, Button, Modal, Alert } from 'react-bootstrap'
 import classnames from 'classnames'
+import some from 'lodash/some'
 
 import Select from 'react-select'
 import style from './style.scss'
@@ -45,7 +46,7 @@ export default class FormModal extends Component {
     if (!id) {
       return this.setState(this.defaultState)
     }
-    this.props.bp.axios.get(`/api/botpress-qna/question/${id}`).then(({ data: item }) => {
+    this.props.bp.axios.get(`/api/botpress-qna/question/${id}`).then(({ data: { data: item } }) => {
       this.setState({
         item,
         isRedirect: [ACTIONS.REDIRECT, ACTIONS.TEXT_REDIRECT].includes(item.action),
@@ -73,12 +74,9 @@ export default class FormModal extends Component {
   }
 
   validateForm() {
-    const { hasCategory, categories } = this.props
     const { item, isText, isRedirect } = this.state
-    const categoryWrapper = hasCategory ? { category: categories.length && item.category } : {}
     const invalidFields = {
-      ...categoryWrapper,
-      questions: !item.questions.length,
+      questions: !item.questions.length || !item.questions[0].length,
       answer: !(this.state.isText && this.state.item.answer),
       checkbox: !(isText || isRedirect),
       redirectFlow: this.state.isRedirect && !this.state.item.redirectFlow,
@@ -86,14 +84,7 @@ export default class FormModal extends Component {
     }
 
     this.setState({ invalidFields })
-
-    for (const field in invalidFields) {
-      if (invalidFields[field]) {
-        return true
-      }
-    }
-
-    return false
+    return some(invalidFields)
   }
 
   onCreate = event => {
@@ -108,8 +99,8 @@ export default class FormModal extends Component {
       this.setState({ isValidForm: true })
     }
 
+    this.props.closeQnAModal()
     return this.props.bp.axios.post('/api/botpress-qna', this.state.item).then(() => {
-      this.onClose()
       this.props.fetchData()
     })
   }
@@ -128,17 +119,15 @@ export default class FormModal extends Component {
 
     const { page, filters: { question, categories } } = this.props
 
+    this.props.closeQnAModal()
     return this.props.bp.axios
       .put(`/api/botpress-qna/${this.props.id}`, this.state.item, {
         params: { ...page, question, categories: categories.map(({ value }) => value) }
       })
       .then(({ data }) => {
-        this.onClose()
         this.props.updateQuestion(data)
       })
   }
-
-  onClose = () => this.setState(this.defaultState, this.props.closeQnAModal)
 
   alertMessage() {
     if (this.state.isValidForm) {
@@ -163,7 +152,11 @@ export default class FormModal extends Component {
     const isEdit = modalType === 'edit'
 
     return (
-      <Modal className={classnames(style.newQnaModal, 'newQnaModal')} show={showQnAModal} onHide={this.onClose}>
+      <Modal
+        className={classnames(style.newQnaModal, 'newQnaModal')}
+        show={showQnAModal}
+        onHide={this.props.closeQnAModal}
+      >
         <form onSubmit={!isEdit ? this.onCreate : this.onEdit}>
           <Modal.Header className={style.qnaModalHeader}>
             <Modal.Title>{!isEdit ? 'Create a new' : 'Edit'} Q&A</Modal.Title>
@@ -171,7 +164,7 @@ export default class FormModal extends Component {
 
           <Modal.Body className={style.qnaModalBody}>
             {this.alertMessage()}
-            {this.props.hasCategory ? (
+            {categories.length ? (
               <div className={style.qnaCategory}>
                 <span className={style.qnaCategoryTitle}>Category</span>
                 <Select
@@ -192,7 +185,7 @@ export default class FormModal extends Component {
                 className={classnames(style.qnaQuestionsTextarea, {
                   qnaCategoryError: invalidFields.questions
                 })}
-                value={this.state.item.questions.join('\n')}
+                value={(this.state.item.questions || []).join('\n')}
                 onChange={event => this.changeItemProperty('questions', event.target.value.split(/\n/))}
                 componentClass="textarea"
               />
@@ -253,7 +246,7 @@ export default class FormModal extends Component {
           </Modal.Body>
 
           <Modal.Footer className={style.qnaModalFooter}>
-            <Button className={style.qnaModalFooterCancelBtn} onClick={this.onClose}>
+            <Button className={style.qnaModalFooterCancelBtn} onClick={this.props.closeQnAModal}>
               Cancel
             </Button>
             <Button className={style.qnaModalFooterSaveBtn} type="submit">

@@ -40,12 +40,11 @@ export default class QnaAdmin extends Component {
     showBulkImport: undefined,
     page: 1,
     overallItemsCount: 0,
-    hasCategory: false,
     showQnAModal: false,
     category: '',
     QnAModalType: 'create',
     quentionsOptions: [],
-    categoriesOptions: [],
+    categoryOptions: [],
     filterCategory: [],
     filterQuestion: '',
     selectedQuestion: []
@@ -65,19 +64,24 @@ export default class QnaAdmin extends Component {
     const params = { limit: ITEMS_PER_PAGE, offset: (page - 1) * ITEMS_PER_PAGE }
     this.props.bp.axios.get('/api/botpress-qna', { params }).then(({ data }) => {
       const quentionsOptions = data.items.map(({ id, data: { questions } }) => ({
-        label: questions.join(','),
+        label: (questions || []).join(','),
         value: id
       }))
 
-      this.setState({ ...data, page, quentionsOptions })
+      this.setState({
+        items: data.items,
+        overallItemsCount: data.count,
+        page,
+        quentionsOptions
+      })
     })
   }
 
   fetchCategories() {
-    this.props.bp.axios.get('/api/botpress-qna/category/list').then(({ data: { categories } }) => {
-      const categoriesOptions = categories.map(category => ({ label: category, value: category }))
+    this.props.bp.axios.get('/api/botpress-qna/categories').then(({ data: { categories } }) => {
+      const categoryOptions = categories.map(category => ({ label: category, value: category }))
 
-      this.setState({ categoriesOptions })
+      this.setState({ categoryOptions })
     })
   }
 
@@ -97,7 +101,7 @@ export default class QnaAdmin extends Component {
     const categories = filterCategory.map(({ value }) => value)
 
     this.props.bp.axios
-      .get('/api/botpress-qna/questions/filter', {
+      .get('/api/botpress-qna/', {
         params: {
           question,
           categories,
@@ -275,12 +279,12 @@ export default class QnaAdmin extends Component {
           onChange={this.onQuestioinsFilter}
           placeholder="Filter questions"
         />
-        {this.state.hasCategory ? (
+        {this.state.categoryOptions.length ? (
           <Select
             className={style.serachQuestions}
             multi
             value={this.state.filterCategory}
-            options={this.state.categoriesOptions}
+            options={this.state.categoryOptions}
             onChange={this.onCategoriesFilter}
             placeholder="Filter caterories"
           />
@@ -329,7 +333,7 @@ export default class QnaAdmin extends Component {
               </div>
             </div>
           </div>
-          {this.state.hasCategory || item.category ? (
+          {item.category ? (
             <div className={style.questionCategory}>
               Category: <span className={style.questionCategoryTitle}>&nbsp;{item.category}</span>
             </div>
@@ -400,7 +404,7 @@ export default class QnaAdmin extends Component {
     )
   }
 
-  closeQnAModal = () => this.setState({ showQnAModal: false })
+  closeQnAModal = () => this.setState({ showQnAModal: false, currentItemId: null })
 
   questionsList = () => this.state.items.map(this.renderItem)
 
@@ -408,7 +412,7 @@ export default class QnaAdmin extends Component {
 
   render() {
     return (
-      <Panel className={`${style.qnaContainer} qnaContainer`}>
+      <Panel className={classnames(style.qnaContainer, 'qnaContainer')}>
         <a
           ref={this.csvDownloadableLink}
           href={this.state.csvDownloadableLinkHref}
@@ -426,8 +430,7 @@ export default class QnaAdmin extends Component {
             bp={this.props.bp}
             showQnAModal={this.state.showQnAModal}
             closeQnAModal={this.closeQnAModal}
-            hasCategory={this.state.hasCategory}
-            categories={this.state.categoriesOptions}
+            categories={this.state.categoryOptions}
             fetchData={this.fetchData}
             id={this.state.currentItemId}
             modalType={this.state.QnAModalType}

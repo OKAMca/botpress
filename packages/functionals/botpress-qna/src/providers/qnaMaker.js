@@ -72,7 +72,7 @@ export default class Storage {
   }
 
   async update(data, id) {
-    const prevData = await this.getQuestion(id)
+    const { data: prevData } = await this.getQuestion(id)
 
     const questionsChanged = _.isEqual(data.questions, prevData.questions)
     const questionsToAdd = _.difference(data.questions, prevData.questions)
@@ -131,7 +131,10 @@ export default class Storage {
 
   async getQuestion(id) {
     const question = (await this.fetchQuestions()).find(({ id: qnaId }) => qnaId == id)
-    return question && qnaItemData(question)
+    if (!question) {
+      return
+    }
+    return { id: question.id, data: qnaItemData(question) }
   }
 
   async count() {

@@ -3,6 +3,153 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="10.51.1"></a>
+## [10.51.1](https://github.com/botpress/modules/compare/v10.51.0...v10.51.1) (2018-11-17)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.51.0"></a>
+# [10.51.0](https://github.com/botpress/modules/compare/v10.50.0...v10.51.0) (2018-11-08)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.50.0"></a>
+# [10.50.0](https://github.com/botpress/modules/compare/v10.49.0...v10.50.0) (2018-10-31)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.49.0"></a>
+# [10.49.0](https://github.com/botpress/modules/compare/v10.48.5...v10.49.0) (2018-10-30)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.5"></a>
+## [10.48.5](https://github.com/botpress/modules/compare/v10.48.4...v10.48.5) (2018-10-19)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.4"></a>
+## [10.48.4](https://github.com/botpress/modules/compare/v10.48.3...v10.48.4) (2018-10-17)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.3"></a>
+## [10.48.3](https://github.com/botpress/modules/compare/v10.48.2...v10.48.3) (2018-10-17)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.2"></a>
+## [10.48.2](https://github.com/botpress/modules/compare/v10.48.1...v10.48.2) (2018-10-17)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.1"></a>
+## [10.48.1](https://github.com/botpress/modules/compare/v10.48.0...v10.48.1) (2018-10-17)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.48.0"></a>
+# [10.48.0](https://github.com/botpress/modules/compare/v10.47.1...v10.48.0) (2018-10-16)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.47.1"></a>
+## [10.47.1](https://github.com/botpress/modules/compare/v10.47.0...v10.47.1) (2018-10-15)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.47.0"></a>
+# [10.47.0](https://github.com/botpress/modules/compare/v10.46.5...v10.47.0) (2018-10-10)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.46.5"></a>
+## [10.46.5](https://github.com/botpress/modules/compare/v10.46.4...v10.46.5) (2018-10-06)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.46.4"></a>
+## [10.46.4](https://github.com/botpress/modules/compare/v10.46.3...v10.46.4) (2018-10-06)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.46.3"></a>
+## [10.46.3](https://github.com/botpress/modules/compare/v10.46.2...v10.46.3) (2018-10-05)
+
+
+### Bug Fixes
+
+* **slack:** added user obj to slack umm for analytics (resolve [#983](https://github.com/botpress/modules/issues/983)) ([#987](https://github.com/botpress/modules/issues/987)) ([f7f4c7c](https://github.com/botpress/modules/commit/f7f4c7c))
+
+
+
+
+<a name="10.46.2"></a>
+## [10.46.2](https://github.com/botpress/modules/compare/v10.46.1...v10.46.2) (2018-10-03)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.46.1"></a>
+## [10.46.1](https://github.com/botpress/modules/compare/v10.46.0...v10.46.1) (2018-10-03)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
+<a name="10.46.0"></a>
+# [10.46.0](https://github.com/botpress/modules/compare/v10.45.0...v10.46.0) (2018-10-03)
+
+
+
+
+**Note:** Version bump only for package @botpress/channel-slack
+
 <a name="10.45.0"></a>
 # [10.45.0](https://github.com/botpress/modules/compare/v10.44.2...v10.45.0) (2018-10-01)
 
